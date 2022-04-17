@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarcasm Detection Result 19BCE1872</title>
+</head>
+<body>
+    <h2 id="input_text" class="input_text"></h2>
+    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    url = window.location.href;
+    console.log(url);
+    var myParam = location.search.split('myvar=')[1] ? location.search.split('myvar=')[1] : 'Hello';
+    console.log(myParam);
+    var decoded = decodeURI(myParam).replace(/\+/g, ' ')
+    console.log(decoded)
+    if(decoded=='1')
+    {
+        document.getElementById("input_text").innerHTML = "Sarcasm Detected";
+    }
+    else
+    {
+        document.getElementById("input_text").innerHTML = "No Sarcasm Detected";
+    }
+    </script>
+</html>

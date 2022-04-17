@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarcasm Detection 19BCE1872</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
+</head>
+
+<body>
+
+    <input type="text" name="text" id="input_Text" placeholder="Enter your text here">
+    <button title="submitButton" id="submitButton" onclick="checkSarcasm()">
+        Submit
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function checkSarcasm() {
+            var text = document.getElementById("input_Text").value;
+            let data = {
+                "text": text,
+                "type": 1
+            }
+            $.ajax({
+                url: '/result',
+                type: 'POST',
+                dataType: 'json',
+                data: data,
+                success: function (response) {
+
+                    console.log(response);
+                    window.open('/resultPage?myvar=' + encodeURI(response['result']));
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
